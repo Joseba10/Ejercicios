@@ -30,9 +30,28 @@ public class Rectangulo {
 	
 public Rectangulo(Rectangulo rectangulo) {
 		
-	this.copia= rectangulo;
+	this(rectangulo.punto,rectangulo.punto2,rectangulo.punto3,rectangulo.punto4);
 		
 	}
+
+
+
+public void perimetro(double radio) {
+	
+	double perimetro= punto+punto2+punto3+punto4;
+	
+	System.out.println("El perimetro del rectangulo" + perimetro);
+	
+}
+
+public void transladar(Vector vector) {
+	
+	//TODO
+//	this.x =this.x + vector.getA();
+//	 this.y = this.y + vector.getB();
+
+	//System.out.println("Nuevo valor de X " + this.x + " Nuevo valor de Y " + this.y);
+}
 
 
 public double getPunto() {
@@ -83,7 +102,15 @@ public Rectangulo getCopia() {
 public void setCopia(Rectangulo copia) {
 	this.copia = copia;
 }
-	
+
+
+@Override
+public String toString() {
+	return "Rectangulo [punto=" + punto + ", punto2=" + punto2 + ", punto3=" + punto3 + ", punto4=" + punto4 + "]";
+}
+
+
+
 	
 	
 	

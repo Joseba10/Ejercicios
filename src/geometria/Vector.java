@@ -1,48 +1,55 @@
 package geometria;
 
 public class Vector {
-	
-	private double vector;
+
+	private static int A_DEFECTO= 0;
+	private static int B_DEFECTO= 0;
+
 	private double a;
 	private double b;
-	
+
 	private double OX;
 	private double OY;
-	private Vector copia;
+	private Vector vector;
 
-	
-	//Constructores
-	
+	// Constructores
+
 	public Vector(double a, double b) {
 		super();
 		this.a = a;
 		this.b = b;
 	}
-	
-	public void Vector(double oX, double oY) {
-		
-		this.OX = oX;
-		this.OY = oY;
+
+	public Vector(Punto a, Punto b) {
+
+	this.a = b.getX()-a.getX();
+	this.b= b.getY()- a.getY();
 	}
 
 	public Vector() {
 		super();
-		this.vector=(Double) null;
+		this.a = A_DEFECTO;
+		this.b = B_DEFECTO;
 	}
 
 	public Vector(Vector vector) {
-		
-		
-			this.copia = vector;
-		}
-	
-	
 
-	public double getVector() {
+		this(vector.a, vector.b);
+
+	}
+	
+	
+	public void imprimir() {
+		
+		System.out.println(this);
+	}
+
+//Metodos Getter y Setter
+	public Vector getVector() {
 		return vector;
 	}
 
-	public void setVector(double vector) {
+	public void setVector(Vector vector) {
 		this.vector = vector;
 	}
 
@@ -78,19 +85,10 @@ public class Vector {
 		OY = oY;
 	}
 
-	public Vector getCopia() {
-		return copia;
-	}
-
-	public void setCopia(Vector copia) {
-		this.copia = copia;
-	}
 
 	@Override
 	public String toString() {
 		return "Vector" + vector;
 	}
 
-
-	
 }

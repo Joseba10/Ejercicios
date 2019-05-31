@@ -8,7 +8,7 @@ public class Punto {
 	private static final int Y_DEFECTO=0;
 	private double x;
 	private double y;
-	private Vector vector;
+	
 
 	//Constructores
 	
@@ -46,33 +46,49 @@ public class Punto {
 	}
 	//Distancia entre dos puntos
 
-public double Distancia( Punto punto) {
+public double distancia( Punto punto) {
 	
-	return Distancia(this,punto);
+	return Distancia(this,punto); 
 		
 	}
 
 
 
-public void puntoMasCercano( ArrayList puntos[]) { 
+public Punto puntoMasCercano( Punto[] arrayPuntos) { 
 	
-	//this.puntos= puntos[];
+	double distacia_minima= Double.MAX_VALUE;
+	Punto resultado = null;
+	
+for(int i=0;i<arrayPuntos.length;i++) {
+	
+		double distancia= distancia(arrayPuntos[i]);
+	 
+	
+	if(distancia<distacia_minima) {
+		
+		distacia_minima=distancia;
+		
+		resultado=arrayPuntos[i];
+	}
+	
+}
+return resultado;
 	
 }
 
-public void transladar(double vector) {
+public void transladar(Vector vector) {
 	
-	//punto= vector;
+	this.x =this.x + vector.getA();
+	 this.y = this.y + vector.getB();
 
-	//x1+ay,y1+b
+	System.out.println("Nuevo valor de X " + this.x + " Nuevo valor de Y " + this.y);
 }
 
-public void imprimir() {
+public void imprimir() { //THIS coge los parametros que tenga this(ejemplo) en el constructor
 	
 	System.out.println(this);
 	
-	
-}
+	}
 	
 	//Metodos Setter y Getter
 	
@@ -96,13 +112,6 @@ public void imprimir() {
 		this.y = y;
 	}
 
-	public Vector getVector() {
-		return vector;
-	}
-
-	public void setVector(Vector vector) {
-		this.vector = vector;
-	}
 	
 @Override
 	public String toString() {
