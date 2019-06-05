@@ -88,7 +88,7 @@ public class Test {
 		
 		System.out.println(r1);
 		
-		r1.perimetro(4);
+		r1.perimetro();
 		
 		Vector vector3= new Vector(3,-2);
 		
