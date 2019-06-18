@@ -8,15 +8,30 @@ public class Test1 {
 
 	public static void main(String[] args) throws SQLException {
 		Connection conexion = null;
-	
+		Object o = "1";
+		try {
+			int a = 3;
+			int b = 0;
+			int c = a / b;
+			Integer i = (Integer) o;
+		} catch (Exception e) {
+			if (e instanceof ClassCastException) {
+				e.printStackTrace();
+			} else if (e instanceof NullPointerException) {
+				e.printStackTrace();
+			} else if (e instanceof ArithmeticException) {
+				e.printStackTrace();
+			} else {
+
+			}
+		}
 		try {
 			loadDriver();
 			conexion = abrirConexion();
 			crearFactura();
 			guardarFactura();
 			modificarDatosCliente();
-		} 
-		catch (ClassNotFoundException e) {
+		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -28,6 +43,8 @@ public class Test1 {
 			} catch (NullPointerException e) {
 				e.printStackTrace();
 			} catch (SQLException e) {
+				e.printStackTrace();
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
